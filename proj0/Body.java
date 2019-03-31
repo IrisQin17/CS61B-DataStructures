@@ -1,7 +1,7 @@
 public class Body{
 	public double xxPos,yyPos,xxVel,yyVel,mass;
 	public String imgFileName;
-	public static final double G=6.67e-11;
+	private static final double G=6.67e-11;
 
 	/**constructor*/
 	public Body(double xP, double yP, double xV, double yV, double m, String img){

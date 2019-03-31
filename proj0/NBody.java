@@ -1,5 +1,5 @@
 public class NBody{
-	public static String starfield="images/starfield.jpg";
+	private static String starfield="images/starfield.jpg";
 
 
 	public static double readRadius(String path){
