@@ -9,7 +9,7 @@ public class NBody{
 		return radius;
 	}
 
-	public static Body[] readplanets(String path){
+	public static Body[] readBodies(String path){
 		In in = new In(path);
 		int number = in.readInt();
 		in.readDouble();
@@ -26,7 +26,7 @@ public class NBody{
 		double dt = Double.parseDouble(args[1]);
 		String filename = args[2];
 		double radius = readRadius(filename);
-		Body[] planets = readplanets(filename);
+		Body[] planets = readBodies(filename);
 
 		/**background music*/
 		StdAudio.play("audio/2001.mid");
