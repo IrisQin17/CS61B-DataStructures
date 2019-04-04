@@ -14,8 +14,9 @@ public class DebugExercise2 {
 //
 //        int max = b & w | a & z;
 //        return max;
-        if (a>b)
+        if (a > b) {
             return a;
+        }
         return b;
     }
 
@@ -64,7 +65,7 @@ public class DebugExercise2 {
         int sum = 0;
         while (i < x.length) {
 //            sum = sum + add(sum, x[i]);
-            sum=add(sum,x[i]);
+            sum = add(sum, x[i]);
             i = i + 1;
         }
         return sum;
