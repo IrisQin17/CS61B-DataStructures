@@ -1,4 +1,4 @@
-import javax.swing.text.BadLocationException;
+//import javax.swing.text.BadLocationException;      unused
 import java.util.Formatter;
 
 /**
@@ -12,11 +12,11 @@ public class IntList {
     /**
      * First element of list.
      */
-    public int first;
+    private int first;
     /**
      * Remaining elements of list.
      */
-    public IntList rest;
+    private IntList rest;
 
     /**
      * A List with first FIRST0 and rest REST0.
@@ -82,7 +82,7 @@ public class IntList {
      */
 
     public static IntList dcatenate(IntList A, IntList B) {
-        if (A.first == 0 && A.rest == null){
+        if (A == null) {
             A = B;
             return A;
         }
@@ -92,6 +92,13 @@ public class IntList {
         }
         P.rest = B;
         return A;
+
+        /**recursively*/
+//        if (A == null) {
+//            return B;
+//        }
+//        A.rest = dcatenate(A.rest,B);
+//        return A;
     }
 
     /**
