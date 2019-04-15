@@ -50,7 +50,7 @@ public class ArrayDeque<T> {
             resize(size * 2);
         }
         array[nextFirst] = item;
-        nextFirst = (nextFirst - 1) % array.length;
+        nextFirst = (nextFirst - 1 + array.length) % array.length;
         size++;
     }
 
@@ -94,7 +94,7 @@ public class ArrayDeque<T> {
         T item = array[nextFirst];
         array[nextFirst] = null;
         size--;
-        if (4 * size < array.length) {
+        if (array.length > 8 && 4 * size < array.length) {
             downsize(array.length / 2);
         }
         return item;
@@ -109,7 +109,7 @@ public class ArrayDeque<T> {
         T item = array[nextLast];
         array[nextLast] = null;
         size--;
-        if (4 * size < array.length) {
+        if (array.length > 8 && 4 * size < array.length) {
             downsize(array.length / 2);
         }
         return item;
@@ -125,38 +125,48 @@ public class ArrayDeque<T> {
     }
 
     /**test*/
-    public static void main(String[] args) {
-        ArrayDeque<Integer> ArrayDeque = new ArrayDeque<>();
-        ArrayDeque.isEmpty();
-        ArrayDeque.addFirst(1);
-        ArrayDeque.addFirst(2);
-        ArrayDeque.removeLast();
-
-//        ArrayDeque<String> a = new ArrayDeque<>();
-//        a.addFirst("z");
-//        a.addFirst("y");
-//        a.addFirst("x");
-//        a.addLast("1");
-//        a.addLast("2");
-//        a.addLast("3");
-//        a.addLast("4");
-//        a.addLast("5");
-//        a.addLast("6");
-//        a.addLast("7");
-//        a.addFirst("w");
-//        a.printDeque();
-//        System.out.println(a.get(1));
-//        ArrayDeque<String> b = new ArrayDeque<>(a);
-//        b.printDeque();
-//        b.removeFirst();
-//        b.removeFirst();
-//        b.removeFirst();
-//        b.removeFirst();
-//        b.removeFirst();
-//        b.removeFirst();
-//        b.removeFirst();
-//        b.removeFirst();
-//        b.removeFirst();
-//        b.printDeque();
-    }
+//    public static void main(String[] args) {
+//        ArrayDeque<Integer> ArrayDeque = new ArrayDeque<>();
+//        ArrayDeque.addFirst(0);
+//        ArrayDeque.removeFirst() ;
+//        ArrayDeque.addFirst(2);
+//        ArrayDeque.removeFirst();
+//        ArrayDeque.addLast(4);
+//        ArrayDeque.removeLast() ;
+//        ArrayDeque.addFirst(6);
+//        ArrayDeque.get(0);
+//        ArrayDeque.addLast(8);
+//        ArrayDeque.removeLast() ;
+//        ArrayDeque.removeLast();
+//        ArrayDeque.addLast(11);
+//        ArrayDeque.removeFirst();
+//        ArrayDeque.addFirst(13);
+//
+////        ArrayDeque<String> a = new ArrayDeque<>();
+////        a.addFirst("z");
+////        a.addFirst("y");
+////        a.addFirst("x");
+////        a.addLast("1");
+////        a.addLast("2");
+////        a.addLast("3");
+////        a.addLast("4");
+////        a.addLast("5");
+////        a.addLast("6");
+////        a.addLast("7");
+////        a.addFirst("w");
+////        a.printDeque();
+////        System.out.println(a.get(1));
+////        ArrayDeque<String> b = new ArrayDeque<>(a);
+////        b.printDeque();
+////        b.removeFirst();
+////        b.removeFirst();
+////        b.removeFirst();
+////        b.removeFirst();
+////        b.removeFirst();
+////        b.removeFirst();
+////        b.removeFirst();
+////        b.removeFirst();
+////        b.removeFirst();
+////        b.printDeque();
+//    }
 }
