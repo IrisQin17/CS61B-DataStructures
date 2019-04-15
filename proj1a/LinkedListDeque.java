@@ -108,7 +108,7 @@ public class LinkedListDeque<T> {
         }
         LinkedListDeque<T> temp = new LinkedListDeque<>(this);
         temp.removeFirst();
-        return temp.getRecursive(index-1);
+        return temp.getRecursive(index - 1);
     }
 
 //    public static void main(String[] args) {

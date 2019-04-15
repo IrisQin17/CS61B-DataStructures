@@ -74,7 +74,8 @@ public class ArrayDeque<T> {
         return size;
     }
 
-    /**Prints the array from first to last, separated by a space. Once finished, print out a new line.*/
+    /**Prints the array from first to last, separated by a space.
+     * Once finished, print out a new line.*/
     public void printDeque() {
         int i = (nextFirst + 1) % array.length;
         while (i != nextLast) {
@@ -104,7 +105,7 @@ public class ArrayDeque<T> {
         if (isEmpty()) {
             return null;
         }
-        nextLast = (nextLast - 1) % array.length;
+        nextLast = (nextLast - 1 + array.length) % array.length;
         T item = array[nextLast];
         array[nextLast] = null;
         size--;
@@ -128,11 +129,8 @@ public class ArrayDeque<T> {
         ArrayDeque<Integer> ArrayDeque = new ArrayDeque<>();
         ArrayDeque.isEmpty();
         ArrayDeque.addFirst(1);
-        ArrayDeque.removeFirst() ;
-        ArrayDeque.isEmpty();
-        ArrayDeque.isEmpty();
-        ArrayDeque.isEmpty();
-        ArrayDeque.addFirst(6);
+        ArrayDeque.addFirst(2);
+        ArrayDeque.removeLast();
 
 //        ArrayDeque<String> a = new ArrayDeque<>();
 //        a.addFirst("z");
