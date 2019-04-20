@@ -37,4 +37,3 @@ public class TestPalindrome {
         assertTrue(palindrome.isPalindrome("flake", cc));
     }
 }
-//Uncomment this class once you've created your Palindrome class.
