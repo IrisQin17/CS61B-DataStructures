@@ -30,7 +30,7 @@ public class TestPalindrome {
     }
 
     @Test
-    public void testIsPalindrome2() {                //buggy???????????
+    public void testIsPalindrome2() {
         CharacterComparator cc = new OffByOne();
         assertTrue(palindrome.isPalindrome("", cc));
         assertTrue(palindrome.isPalindrome("s", cc));
