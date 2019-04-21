@@ -4,7 +4,9 @@ public interface Deque<T> {
     /**Adds an item of type T to the back of the deque.*/
     void addLast(T item);
     /**Returns true if deque is empty, false otherwise.*/
-    boolean isEmpty();
+    default boolean isEmpty() {
+        return size() == 0;
+    }
     /**Returns the number of items in the deque.*/
     int size();
     /**Prints the items in the deque from first to last, separated by a space.

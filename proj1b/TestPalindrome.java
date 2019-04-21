@@ -20,10 +20,10 @@ public class TestPalindrome {
     public void testIsPalindrome1() {
         assertTrue(palindrome.isPalindrome(""));
         assertTrue(palindrome.isPalindrome("s"));
-        assertFalse(palindrome.isPalindrome("cat"));
         assertTrue(palindrome.isPalindrome("abccba"));
         assertTrue(palindrome.isPalindrome("abcba"));
         assertTrue(palindrome.isPalindrome("aaaa"));
+        assertFalse(palindrome.isPalindrome("cat"));
         assertFalse(palindrome.isPalindrome("abcdba"));
         assertFalse(palindrome.isPalindrome("sssssssd"));
     }
@@ -43,6 +43,5 @@ public class TestPalindrome {
         assertTrue(palindrome.isPalindrome("af", cc5));
         assertTrue(palindrome.isPalindrome("fa", cc5));
         assertFalse(palindrome.isPalindrome("abc", cc5));
-
     }
 }
