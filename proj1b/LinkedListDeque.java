@@ -106,33 +106,4 @@ public class LinkedListDeque<T> implements Deque<T> {
         return temp.item;
     }
 
-    /**Same as get, but uses recursion.*/
-    @Override
-    public T getRecursive(int index) {
-        if (index >= size) {
-            return null;
-        }
-        if (index == 0) {
-            return sentinel.next.item;
-        }
-        LinkedListDeque<T> temp = new LinkedListDeque<>(this);
-        temp.removeFirst();
-        return temp.getRecursive(index - 1);
-    }
-
-//    public static void main(String[] args) {
-//        LinkedListDeque<String> x = new LinkedListDeque<>();
-//        x.addFirst("world");
-//        x.addFirst("amazing");
-//        x.addLast("!");
-//        x.printDeque();
-////        LinkedListDeque<String> y = new LinkedListDeque<>();
-////        y.addFirst("aaa");
-////        y.addFirst("bbb");
-////        y.printDeque();
-//        LinkedListDeque<String> z = new LinkedListDeque<>(x);
-//        z.printDeque();
-//        System.out.println(z.getRecursive(3));
-//    }
-
 }

@@ -17,8 +17,4 @@ public interface Deque<T> {
     /** Gets the item at the given index, where 0 is the front.
      * If no such item exists, returns null. Must not alter the deque!*/
     T get(int index);
-    /**Same as get, but uses recursion.*/
-    T getRecursive(int index);
-
-
 }
