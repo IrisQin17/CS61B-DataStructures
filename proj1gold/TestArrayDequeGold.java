@@ -12,12 +12,10 @@ public class TestArrayDequeGold {
                 correct.addFirst(num);
                 student.addFirst(num);
                 msg += "addFirst(" + num + ")\n";
-                assertEquals(msg, correct.get(0), student.get(0));
             } else if (num < 50) {
                 correct.addLast(num);
                 student.addLast(num);
                 msg += "addLast(" + num + ")\n";
-                assertEquals(msg, correct.get(student.size() - 1), student.get(student.size() - 1));
             } else if (num < 75) {
                 if (!correct.isEmpty()) {
                     Integer a = correct.removeFirst();
