@@ -6,7 +6,7 @@ import java.util.TreeSet;
 public class Percolation {
     private int n, top, bottom;
     private WeightedQuickUnionUF grid, gridNoBottom;
-    private TreeSet<Integer> openSite=new TreeSet<>();
+    private TreeSet<Integer> openSite = new TreeSet<>();
 
     /**create N-by-N grid, with all sites initially blocked */
     public Percolation(int N) {
@@ -32,10 +32,10 @@ public class Percolation {
         if (row == 0) {
             grid.union(top, index);
             gridNoBottom.union(top, index);
-        } else if (row == n - 1) {
+        }
+        if (row == n - 1) {
             grid.union(bottom, index);
         }
-
         if (col > 0 && isOpen(row, col - 1)) {
             grid.union(xyTo1D(row, col - 1), index);
             gridNoBottom.union(xyTo1D(row, col - 1), index);
@@ -61,9 +61,9 @@ public class Percolation {
     }
 
     /**is the site (row, col) full?*/
-    public boolean isFull(int row, int col) {
+    public boolean isFull(int row, int col) {   //create gridNoBottom to prevent backwash
         validate(row, col);
-        return gridNoBottom.connected(xyTo1D(row, col), top);    //create gridNoBottom to prevent backwash
+        return gridNoBottom.connected(xyTo1D(row, col), top);
     }
 
     /**number of open sites, including both empty and full*/
@@ -85,8 +85,10 @@ public class Percolation {
         return row * n + col;
     }
 
-    /**the row and column indices are integers between 0 and N − 1, where (0, 0) is the upper-left site:
-     * Throw a java.lang.IndexOutOfBoundsException if any argument is outside its prescribed range.
+    /**the row and column indices are integers between 0 and N − 1,
+     * where (0, 0) is the upper-left site:
+     * Throw a java.lang.IndexOutOfBoundsException
+     * if any argument is outside its prescribed range.
      */
     private void validate(int row, int col) {
         if (row < 0 || row >= n || col < 0 || col >= n) {
@@ -102,15 +104,15 @@ public class Percolation {
 //        System.out.println(x.find(1));
 //        System.out.println(x.count());
         Percolation x = new Percolation(3);
-        x.open(2,2);
-        x.open(1,2);
+        x.open(2, 2);
+        x.open(1, 2);
         System.out.println(x.percolates());
-        x.open(0,0);
-        x.open(1,0);
-        x.open(2,0);
+        x.open(0, 0);
+        x.open(1, 0);
+        x.open(2, 0);
         System.out.println(x.percolates());
-        System.out.println(x.isFull(2,0));
-        System.out.println(x.isFull(2,2));
+        System.out.println(x.isFull(2, 0));
+        System.out.println(x.isFull(2, 2));
         System.out.println(x.grid.find(5));
         System.out.println(x.grid.find(10));
         System.out.println(x.grid.find(4));
