@@ -18,7 +18,8 @@ public class PercolationStats {
                 int col = StdRandom.uniform(0, N);
                 p.open(row, col);
             }
-            threshold[i] = p.numberOfOpenSites() / (N * N);
+            threshold[i] = (double)p.numberOfOpenSites() / (N * N);
+            System.out.println(threshold[i]);
         }
     }
 
@@ -52,6 +53,14 @@ public class PercolationStats {
         double u = mean();
         double e = stddev();
         return u + 1.96 * e / Math.sqrt(t);
+    }
+
+
+    public static void main(String[] args) {
+        PercolationFactory x = new PercolationFactory();
+        PercolationStats y = new PercolationStats(20, 10, x);
+        System.out.println(y.mean());
+
     }
 
 }
