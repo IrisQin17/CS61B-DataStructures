@@ -1,4 +1,6 @@
+import java.util.HashSet;
 import java.util.Set;
+import java.util.Stack;
 import java.util.Iterator;
 
 public class BSTMap<K extends Comparable<K>, V> implements Map61B<K, V> {
@@ -94,13 +96,46 @@ public class BSTMap<K extends Comparable<K>, V> implements Map61B<K, V> {
 
     @Override
     public Iterator<K> iterator() {
-        throw new UnsupportedOperationException();
+        return new BSTMapIterator();
+    }
+    private class BSTMapIterator implements Iterator<K> {
+        private Stack<K> stack = new Stack<>();
+        public BSTMapIterator() {
+            helper(stack, root);
+        }
+        private void helper(Stack<K> stack, Node x) {
+            if (x == null) {
+                return;
+            }
+            stack.push(x.key);
+            helper(stack, x.left);
+            helper(stack, x.right);
+        }
+        @Override
+        public boolean hasNext() {
+            return !stack.isEmpty();
+        }
+
+        @Override
+        public K next() {
+            return stack.pop();
+        }
     }
 
     /** Returns a Set view of the keys contained in this map. */
     @Override
     public Set<K> keySet() {
-        throw new UnsupportedOperationException();
+        Set<K> keys = new HashSet<>();
+        KeySet(keys, root);
+        return keys;
+    }
+    private void KeySet(Set<K> keys, Node x) {
+        if (x == null) {
+            return;
+        }
+        keys.add(x.key);
+        KeySet(keys, x.left);
+        KeySet(keys, x.right);
     }
 
     /** Removes the mapping for the specified key from this map if present.
@@ -108,7 +143,13 @@ public class BSTMap<K extends Comparable<K>, V> implements Map61B<K, V> {
      * UnsupportedOperationException. */
     @Override
     public V remove(K key) {
-        throw new UnsupportedOperationException();
+        if (!containsKey(key)) {
+            return null;
+        }
+
+
+
+        //throw new UnsupportedOperationException();
     }
 
     /** Removes the entry for the specified key only if it is currently mapped to
@@ -116,7 +157,12 @@ public class BSTMap<K extends Comparable<K>, V> implements Map61B<K, V> {
      * throw an UnsupportedOperationException.*/
     @Override
     public V remove(K key, V value) {
-        throw new UnsupportedOperationException();
+        if (!get(key).equals(value)) {
+            return null;
+        }
+
+
+        //throw new UnsupportedOperationException();
     }
 
     /** prints out your BSTMap in order of increasing Key */
@@ -140,16 +186,4 @@ public class BSTMap<K extends Comparable<K>, V> implements Map61B<K, V> {
             return;
         }
     }
-
-//    public static void main(String[] args) {
-//        BSTMap b = new BSTMap<Integer, Integer>();
-//        b.put(5,5);
-//        b.put(8,8);
-//        b.put(2,2);
-//        b.put(0,0);
-//        b.put(11,11);
-//        b.put(9,9);
-//        b.put(4,4);
-//        b.printInOrder();
-//    }
 }
