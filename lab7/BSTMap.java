@@ -149,7 +149,7 @@ public class BSTMap<K extends Comparable<K>, V> implements Map61B<K, V> {
 
 
 
-        //throw new UnsupportedOperationException();
+        throw new UnsupportedOperationException();
     }
 
     /** Removes the entry for the specified key only if it is currently mapped to
@@ -162,7 +162,7 @@ public class BSTMap<K extends Comparable<K>, V> implements Map61B<K, V> {
         }
 
 
-        //throw new UnsupportedOperationException();
+        throw new UnsupportedOperationException();
     }
 
     /** prints out your BSTMap in order of increasing Key */
