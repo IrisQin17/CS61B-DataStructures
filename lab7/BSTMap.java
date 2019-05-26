@@ -170,8 +170,7 @@ public class BSTMap<K extends Comparable<K>, V> implements Map61B<K, V> {
         } else {
             if (x.left == null) {
                 return x.right;
-            }
-            if (x.right == null) {
+            }else if (x.right == null) {
                 return x.left;
             }
             Node temp = x;
