@@ -143,13 +143,9 @@ public class BSTMap<K extends Comparable<K>, V> implements Map61B<K, V> {
      * UnsupportedOperationException. */
     @Override
     public V remove(K key) {
-        if (!containsKey(key)) {
-            return null;
-        }
-
-
-
-        throw new UnsupportedOperationException();
+        V value = get(key);
+        root = remove(root, key);
+        return value;
     }
 
     /** Removes the entry for the specified key only if it is currently mapped to
@@ -160,9 +156,47 @@ public class BSTMap<K extends Comparable<K>, V> implements Map61B<K, V> {
         if (!get(key).equals(value)) {
             return null;
         }
+        root = remove(root, key);
+        return value;
+    }
+    private Node remove(Node x, K key) {
+        if (x == null) {
+            return null;
+        }
+        if (key.compareTo(x.key) < 0) {
+            x.left = remove(x.left, key);
+        } else if (key.compareTo(x.key) > 0) {
+            x.right = remove(x.right, key);
+        } else {
+            if (x.left == null) {
+                return x.right;
+            }
+            if (x.right == null) {
+                return x.left;
+            }
+            Node temp = x;
+            x = min(temp.right);
+            x.right = removeMin(temp.right);
+            x.left = temp.left;
+        }
+        x.size = size(x.left) + size(x.right) + 1;
+        return x;
+    }
+    private Node removeMin(Node x) {
 
+        if (x.left == null) {
+            return x.right;
+        }
+        x.left = removeMin(x.left);
+        x.size = size(x.left) + size(x.right) + 1;
+        return x;
+    }
+    private Node min(Node x) {
+        if (x.left == null) {
 
-        throw new UnsupportedOperationException();
+            return x;
+        }
+        return min(x.left);
     }
 
     /** prints out your BSTMap in order of increasing Key */
