@@ -118,11 +118,11 @@ public class MyHashMap<K, V> implements Map61B<K, V> {
     }
 
     private void resize() {
-        HashSet<K> tempKeys = new HashSet<>(2*initialSize);
-        V[] tempValues = (V[]) new Object[2*initialSize];
+        HashSet<K> tempKeys = new HashSet<>(2 * initialSize);
+        V[] tempValues = (V[]) new Object[2 * initialSize];
         for (K key : keys) {
             tempKeys.add(key);
-            tempValues[Math.floorMod(key.hashCode(), initialSize*2)] =
+            tempValues[Math.floorMod(key.hashCode(), initialSize * 2)] =
                     values[Math.floorMod(key.hashCode(), initialSize)];
         }
         keys = tempKeys;
