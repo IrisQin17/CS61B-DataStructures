@@ -1,0 +1,53 @@
+[InsertRandomSpeedTest 1]
+This program inserts random Strings of length L
+Into different types of maps as <String, Integer> pairs.
+
+What would you like L to be?: 10
+
+Enter # strings to insert into ULLMap: 20000
+class ULLMap: 2.54 sec
+
+Enter # strings to insert into your MyHashMap: 20000
+class MyHashMap: 0.04 sec
+
+Enter # strings to insert into Java's HashMap: 20000
+Java's Built-in HashMap: 0.01 sec
+
+[InsertRandomSpeedTest 2]
+This program inserts random Strings of length L
+Into different types of maps as <String, Integer> pairs.
+
+What would you like L to be?: 15
+
+Enter # strings to insert into ULLMap: 20000
+class ULLMap: 2.76 sec
+
+Enter # strings to insert into your MyHashMap: 20000
+class MyHashMap: 0.05 sec
+
+Enter # strings to insert into Java's HashMap: 20000
+Java's Built-in HashMap: 0.02 sec
+
+[InsertInOrderSpeedTest 1]
+This program inserts lexicographically increasing Stringsinto Maps as <String, Integer> pairs.
+
+Enter # strings to insert into ULLMap: 10000
+class ULLMap: 1.54 sec
+
+Enter # strings to insert into MyHashMap: 10000
+class MyHashMap: 0.09 sec
+
+Enter # strings to insert into Java's HashMap: 10000
+Java's Built-in HashMap: 0.02 sec
+
+[InsertInOrderSpeedTest 2]
+This program inserts lexicographically increasing Stringsinto Maps as <String, Integer> pairs.
+
+Enter # strings to insert into ULLMap: 20000
+class ULLMap: 8.32 sec
+
+Enter # strings to insert into MyHashMap: 20000
+class MyHashMap: 0.11 sec
+
+Enter # strings to insert into Java's HashMap: 20000
+Java's Built-in HashMap: 0.02 sec
