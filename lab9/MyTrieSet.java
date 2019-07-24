@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class MyTrieSet implements TrieSet61B {
-    private static final int R = 10;   //ASCII
+    private static final int R = 128;   //ASCII
     private Node root;      // root of trie
     private class Node {
         private char character;
