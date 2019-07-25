@@ -89,9 +89,7 @@ public class MyTrieSet implements TrieSet61B {
             l.add(s);
         }
         for (Node i : n.map.values()) {
-            if (i != null) {
-                prefixHelper(s + i.character, l, i);
-            }
+            prefixHelper(s + i.character, l, i);
         }
     }
 
