@@ -96,10 +96,10 @@ public class KDTree implements PointSet {
         }
         best = nearestHelper(goodSide, goal, best);
         double bestToGoal = goal.distance(goal, best.getPoint());
-        if ((best.getIsVertial()
-                && goal.distance(goal, new Point(goal.getX(), best.getPoint().getY())) < bestToGoal)
-                || (!best.getIsVertial()
-                && goal.distance(goal, new Point(best.getPoint().getX(), goal.getY())) < bestToGoal)) {
+        if ((n.getIsVertial()
+                && goal.distance(goal, new Point(goal.getX(), n.getPoint().getY())) < bestToGoal)
+                || (!n.getIsVertial()
+                && goal.distance(goal, new Point(n.getPoint().getX(), goal.getY())) < bestToGoal)) {
             best = nearestHelper(badSide, goal, best);
         }
         return best;
