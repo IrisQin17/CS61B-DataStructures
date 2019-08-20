@@ -21,10 +21,31 @@ public class SeparableEnemySolver {
 
     /**
      * Returns true if input is separable, false otherwise.
+     * one's all neighbors are enemies. Can not have enemies in neighbors
      */
     public boolean isSeparable() {
-        // TODO: Fix me
-        return false;
+        Map<String, Boolean> map = new HashMap<>();
+        for (String label : g.labels()) {
+            if (!map.containsKey(label)) {
+                if (!helper(map, label, true)) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    private boolean helper(Map<String, Boolean> map, String label, boolean party) {
+        if (map.containsKey(label)) {
+            return party == map.get(label);
+        }
+        map.put(label, party);
+        for (String n : g.neighbors(label)) {
+            if (!helper(map, n, !party)) {
+                return false;
+            }
+        }
+        return true;
     }
 
 
@@ -45,7 +66,7 @@ public class SeparableEnemySolver {
                 }
                 continue;
             }
-            assert(lines.get(i).size() == 2);
+            assert (lines.get(i).size() == 2);
             input.connect(lines.get(i).get(0), lines.get(i).get(1));
         }
         return input;
